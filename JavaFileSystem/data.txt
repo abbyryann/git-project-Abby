@@ -1,0 +1,1 @@
+Git names every object by the hash of its contents.
