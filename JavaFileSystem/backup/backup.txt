@@ -1,0 +1,3 @@
+Hashing turns any content into a fixed-size fingerprint.
+Git names every object by the hash of its contents.
+Two different files essentially never share a SHA-256 hash.

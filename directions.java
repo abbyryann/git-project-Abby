@@ -1,13 +1,6 @@
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.HexFormat;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 public class directions {
     public static void main(String[] args) {

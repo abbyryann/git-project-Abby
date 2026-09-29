@@ -1,0 +1,1 @@
+Two different files essentially never share a SHA-256 hash.
