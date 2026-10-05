@@ -11,20 +11,20 @@ import java.util.HexFormat;
 
 public class onlyFileHasher {
     public static void main(String[] args) throws IOException {
-        try {
-            String sha1hash = hashFile("hello.txt");
-            File backup = new File("git/objects/ " + sha1hash + ".txt");
-            FileWriter object = new FileWriter(("git/objects/" + sha1hash + ".txt"));
-            String content = new String(Files.readAllBytes(Paths.get("hello.txt")));
-            object.write(content);
-            object.close();
-            System.out.println(backup);
-            System.out.println(content);
-            updateIndexFile("hello.txt");
-
-        } catch (Exception e) {
-            // TODO: handle exception
+        for (int i = 0; i < args.length; i++) {
+            createBlob(args[i]);
         }
+    }
+
+    public static void createBlob(String filePath) throws IOException {
+        String sha1hash = hashFile(filePath);
+        String content = new String(Files.readAllBytes(Paths.get(filePath)));
+        File backup = new File("git/objects/ " + sha1hash);
+        FileWriter object = new FileWriter(("git/objects/" + sha1hash));
+        object.write(content);
+        object.close();
+        System.out.println(backup);
+        updateIndexFile(filePath);
     }
 
     public static String hashFile(String filePath) throws IOException {
