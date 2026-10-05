@@ -20,6 +20,7 @@ public class onlyFileHasher {
             object.close();
             System.out.println(backup);
             System.out.println(content);
+            updateIndexFile("hello.txt");
 
         } catch (Exception e) {
             // TODO: handle exception
@@ -44,5 +45,16 @@ public class onlyFileHasher {
         byte[] hash = digest.digest(fileBytes);
 
         return HexFormat.of().formatHex(hash);
+    }
+
+    public static void updateIndexFile(String filePath) throws IOException {
+        String sha1hash = hashFile(filePath);
+        File backup = new File("git/index/" + sha1hash + ".txt");
+        FileWriter updatingIndex = new FileWriter(("git/index"));
+        // String content = new String(Files.readAllBytes(Paths.get(filePath)));
+        updatingIndex.write(sha1hash + " " + filePath);
+        updatingIndex.close();
+        System.out.println(backup);
+        System.out.println(updatingIndex);
     }
 }

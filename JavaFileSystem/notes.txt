@@ -1,1 +1,0 @@
-Hashing turns any content into a fixed-size fingerprint.
