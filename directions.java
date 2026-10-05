@@ -4,6 +4,10 @@ import java.io.IOException;
 
 public class directions {
     public static void main(String[] args) {
+        init(args);
+    }
+
+    public static void init(String[] args) {
         try {
             // TODO (FH-1): create the JavaFileSystem directory
             File root = new File("git/");
@@ -30,4 +34,5 @@ public class directions {
             System.out.println("File error: " + e.getMessage());
         }
     }
+
 }
